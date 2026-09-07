@@ -2,7 +2,7 @@
 
 # OpenCode Ultra Setup
 
-**My [OpenCode](https://opencode.ai) setup taken to the "ultra".** A team of 11 agents with team mode, persistent memory, context compression, a real interactive terminal, web search with citations, metrics, skills, and anti-slop guidelines.
+**My [OpenCode](https://opencode.ai) setup taken to the "ultra" — documented and reproducible.** A team of 11 agents with team mode, persistent memory, context compression, a real interactive terminal, web search with citations, metrics, skills, and anti-slop guidelines.
 
 <img src="https://img.shields.io/badge/OpenCode-agent-000000?style=flat&logo=opencode&logoColor=white" alt="OpenCode">
 <img src="https://img.shields.io/badge/agents-11-8A2BE2?style=flat" alt="11 agents">
@@ -26,7 +26,7 @@
 
 ---
 
-Documentation of my [OpenCode](https://opencode.ai) setup taken to the "ultra": instead of re-explaining the project to every session, the agent remembers context (supermemory), compresses what doesn't matter (headroom), delegates work to a team of specialized agents (oh-my-openagent), and queries your codebase (Cortex) and GitHub (MCP) on demand.
+Documentation of a working [OpenCode](https://opencode.ai) setup taken to the "ultra": instead of re-explaining the project to every session, the agent remembers context (supermemory), compresses what doesn't matter (headroom), delegates work to a team of specialized agents (oh-my-openagent), and queries your codebase (Cortex) and GitHub (MCP) on demand.
 
 > **Status: in progress** — several components installed and running, others still being tuned (see [Plan](docs/plano.md)).
 
@@ -117,22 +117,40 @@ graph TD
 
 ## Getting Started
 
-1. Install [OpenCode](https://opencode.ai).
-2. Follow each component's installation steps in the docs above (links in the [Components](#components) table).
-3. Reference the global `AGENTS.md` with the quality guidelines.
-4. Check what's still pending in [Setup pending items](docs/plano.md#setup-pending-items).
+The repo is a working reference. To reproduce the setup: install the runtime deps, copy the sanitized example configs, authenticate, and start `opencode`.
+
+1. **Install [OpenCode](https://opencode.ai).**
+2. **Install the runtime deps** each component needs:
+
+   | Tool | Why | Install |
+   |---|---|---|
+   | OmniRoute | free gateway (provider `auto`, 352 providers) | `npm install -g --allow-scripts=bun omniroute` |
+   | GitHub MCP | issues/PRs/Actions/CI | `npm install -g @modelcontextprotocol/server-github` |
+   | headroom | context-compression proxy | `pip install "headroom-ai[all]"` |
+   | supermemory | persistent memory | `bunx opencode-supermemory@latest install --no-tui` |
+   | Cortex | dev intelligence (CLI + MCP) | see [cortex.md](docs/cortex.md) |
+   | oh-my-openagent | 11 agents / team mode | see [oh-my-openagent.md](docs/oh-my-openagent.md) |
+
+3. **Copy the example configs** from `config/` into `~/.config/opencode/` (Windows: `%USERPROFILE%\.config\opencode\`) — see [Config files](#config-files). Then customize:
+   - `omo.jsonc` → replace the placeholder models with ones your providers expose (`auto` via OmniRoute, Antigravity `google/...`, GitHub Copilot, or GOAT).
+   - `opencode.jsonc` → set your GitHub PAT via the `GITHUB_PERSONAL_ACCESS_TOKEN` env var (never hardcode it).
+4. **Authenticate**:
+   - supermemory: `bunx opencode-supermemory@latest login`
+   - antigravity-auth (Claude/Gemini without an API key): `opencode auth login` → Google
+5. **(Optional) Start the headroom proxy**: `powershell -File config/start-headroom.ps1` (port 8787).
+6. **Validate**: launch `opencode`, then `bunx opencode-supermemory@latest status` and `headroom doctor`.
 
 ## Config files
 
-The files that make up the setup live locally (not versioned — see [Security](#security); contents sanitized, no keys):
+Sanitized examples (no keys) that make the setup reproducible. Not versioned: the local files with real credentials stay out of the repo (see [Security](#security)).
 
-| File | Contents |
-|---|---|
-| `config/opencode.jsonc` | plugins, providers, permissions, MCPs |
-| `config/omo.jsonc` | oh-my-openagent agents/teams |
-| `config/supermemory.jsonc` | persistent memory |
-| `config/start-headroom.ps1` | headroom proxy launcher |
-| `config/AGENTS.md` | global guidelines |
+| File | Copies to | Contents |
+|---|---|---|
+| `config/opencode.example.jsonc` | `~/.config/opencode/opencode.json` | plugins, providers, permissions, MCPs |
+| `config/omo.example.jsonc` | `~/.omo/omo.jsonc` | oh-my-openagent agents/team |
+| `config/supermemory.example.jsonc` | `~/.config/opencode/supermemory.jsonc` | persistent-memory settings |
+| `config/AGENTS.example.md` | `~/.config/opencode/AGENTS.md` | Karpathy + anti-slop global guidelines |
+| `config/start-headroom.ps1` | run as-is | headroom proxy launcher (port 8787) |
 
 ## Security
 

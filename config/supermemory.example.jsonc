@@ -1,0 +1,12 @@
+{
+  // Example — copy to ~/.config/opencode/supermemory.jsonc
+  "similarityThreshold": 0.55,
+  "maxMemories": 5,
+  "maxProjectMemories": 10,
+  "maxProfileItems": 5,
+  "injectProfile": true,
+  "keywordPatterns": ["remember", "save this", "don't forget"],
+  "compactionThreshold": 0.8,
+  "captureEveryNTurns": 3,
+  "recallDirective": null
+}

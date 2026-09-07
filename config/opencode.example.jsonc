@@ -1,0 +1,59 @@
+{
+  // Example — sanitized. Copy to ~/.config/opencode/opencode.json
+  // (Windows: %USERPROFILE%\.config\opencode\opencode.json)
+  "$schema": "https://opencode.ai",
+
+  // Plugins — oh-my-openagent creates ~/.omo/omo.jsonc on first run.
+  // Remove the ones you don't want (e.g., antigravity-auth or wakatime).
+  "plugin": [
+    "oh-my-openagent@latest",
+    "opencode-pty",
+    "opencode-supermemory",
+    "opencode-antigravity-auth@latest",
+    "opencode-wakatime",
+    "opencode-agent-skills",
+    "opencode-websearch-cited@1.2.0"
+  ],
+
+  "provider": {
+    // OmniRoute free gateway (port 20128, anonymous by default — REQUIRE_API_KEY=false)
+    "omniroute": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OmniRoute",
+      "options": {
+        "baseURL": "http://localhost:20128/v1",
+        "apiKey": "sk_omniroute"
+      },
+      "models": {
+        "auto": { "name": "Auto (multi-provider)" }
+      }
+    }
+  },
+
+  "mcp": {
+    "github": {
+      "type": "local",
+      "command": ["mcp-server-github.cmd"], // npm install -g @modelcontextprotocol/server-github
+      "enabled": true
+      // Read the PAT from the GITHUB_PERSONAL_ACCESS_TOKEN env var — never hardcode it.
+      // Alternative: "environment": { "GITHUB_PERSONAL_ACCESS_TOKEN": "<your PAT>" }
+    },
+    "cortex": {
+      "type": "local",
+      "command": ["cortex-mcp"], // see docs/cortex.md for the install
+      "enabled": true
+    }
+  },
+
+  "permission": {
+    "bash": {
+      "npm run dev": "allow",
+      "npm run build": "allow",
+      "npm test *": "allow",
+      "npm run *": "allow",
+      "bun run *": "allow",
+      "python *": "allow",
+      "pip install *": "allow"
+    }
+  }
+}

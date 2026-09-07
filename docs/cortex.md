@@ -30,9 +30,9 @@ pnpm link --global
 ```
 
 > ⚠️ **Windows/pnpm:** `pnpm link --global` may fail to create the shims. Fix that worked: create `cortex.cmd` and `cortex-mcp.cmd` manually in `%APPDATA%\npm` pointing straight at `dist`:
-> ```
+> ``` 
 > @echo off
-> node "C:\Users\Windows\Cortex\packages\cli\dist\index.js" %*
+> node "%USERPROFILE%\Cortex\packages\cli\dist\index.js" %*
 > ```
 > (plus the equivalent for `cortex-mcp` pointing at `packages\mcp\dist\index.js`). Remove the broken shims from `%LOCALAPPDATA%\pnpm\cortex*` so they don't conflict in `PATH`.
 

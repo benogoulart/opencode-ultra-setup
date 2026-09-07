@@ -1,0 +1,82 @@
+// Example — sanitized. Copy to ~/.omo/omo.jsonc (Windows: %USERPROFILE%\.omo\omo.jsonc)
+//
+// The "model" values are placeholders. Replace them with models your own
+// providers expose, for example:
+//   OmniRoute (free):   "auto"
+//   Antigravity:         "google/antigravity-claude-opus-4-6" / "google/gemini-3.1-pro"
+//   GitHub Copilot:      "github-copilot/gpt-5.6-sol"
+//   GOAT (paid):         "glm/glm-5.2" (see docs/plano.md for the full routing table)
+{
+  "team_mode": {
+    "enabled": true,
+    "max_parallel_members": 4,
+    "tmux_visualization": false
+  },
+  "hashline_edit": true,
+  "goal": {
+    "enabled": true
+  },
+  "experimental": {
+    "auto_resume": true
+  },
+  "[opencode]": {
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/omo.schema.json",
+    "agents": {
+      "sisyphus": {
+        "model": "auto",
+        "variant": "max",
+        "fallback_models": [{ "model": "auto", "variant": "medium" }]
+      },
+      "hephaestus": {
+        "model": "auto",
+        "variant": "medium"
+      },
+      "oracle": {
+        "model": "auto",
+        "variant": "high",
+        "fallback_models": [{ "model": "auto", "variant": "high" }]
+      },
+      "librarian": {
+        "model": "auto"
+      },
+      "explore": {
+        "model": "auto",
+        "fallback_models": [{ "model": "auto" }]
+      },
+      "multimodal-looker": {
+        "model": "auto"
+      },
+      "prometheus": {
+        "model": "auto",
+        "variant": "high"
+      },
+      "metis": {
+        "model": "auto",
+        "variant": "high"
+      },
+      "momus": {
+        "model": "auto",
+        "variant": "high",
+        "fallback_models": [{ "model": "auto", "variant": "high" }]
+      },
+      "atlas": {
+        "model": "auto",
+        "fallback_models": [{ "model": "auto", "variant": "medium" }]
+      },
+      "sisyphus-junior": {
+        "model": "auto",
+        "fallback_models": [{ "model": "auto", "variant": "medium" }]
+      }
+    },
+    "categories": {
+      "visual-engineering": { "model": "auto", "variant": "max", "fallback_models": [{ "model": "auto", "variant": "medium" }] },
+      "ultrabrain": { "model": "auto", "variant": "high" },
+      "deep": { "model": "auto", "variant": "medium" },
+      "artistry": { "model": "auto", "variant": "high", "fallback_models": [{ "model": "auto", "variant": "high" }] },
+      "quick": { "model": "auto" },
+      "unspecified-low": { "model": "auto", "variant": "high", "fallback_models": [{ "model": "auto", "variant": "low" }] },
+      "unspecified-high": { "model": "auto", "variant": "high", "fallback_models": [{ "model": "auto", "variant": "low" }] },
+      "writing": { "model": "auto", "variant": "low", "fallback_models": [{ "model": "auto" }] }
+    }
+  }
+}

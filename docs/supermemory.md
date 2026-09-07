@@ -15,6 +15,6 @@ Creates the `/supermemory-init`, `/supermemory-login`, `/supermemory-logout`, `/
 
 ## Status
 
-✅ **Working** — authenticated (account Pampequeredbull), project container created, per-turn recall + capture every 3 turns and at end of session. Requires an OpenCode restart after login.
+✅ **Working** — authenticated, project container created, per-turn recall + capture every 3 turns and at end of session. Requires an OpenCode restart after login.
 
 > ⚠️ **Note:** the console dashboard (`console.supermemory.ai/auth/connect`) sometimes hangs on the "Loading workspaces…" step. It's not a network/CLI problem — trying an incognito window or re-running `login` usually fixes it.
