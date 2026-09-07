@@ -1,9 +1,9 @@
 # opencode-wakatime
 
-> **Projeto original:** https://github.com/angristan/opencode-wakatime
+> **Original project:** https://github.com/angristan/opencode-wakatime
 
-Métricas de quanto o agente codeja (linhas, horas, modelo usado). Plugin `opencode-wakatime`.
+Metrics of how much the agent codes (lines, hours, model used). `opencode-wakatime` plugin.
 
 ## Status
 
-⏳ **Parcialmente configurado** — instalado, mas falta a API key no `~/.wakatime.cfg`.
+⏳ **Partially configured** — installed, but the API key is missing in `~/.wakatime.cfg`.

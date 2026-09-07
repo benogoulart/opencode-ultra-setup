@@ -1,38 +1,38 @@
 # oh-my-openagent
 
-> **Projeto original:** https://github.com/code-yeongyu/oh-my-openagent
+> **Original project:** https://github.com/code-yeongyu/oh-my-openagent
 
-Um time de **11 agentes** com **Team Mode** (execução paralela, `ultrawork`) e **hashline edits** (edições verificadas por hash), **goal** persistente e **auto-resume**.
+A team of **11 agents** with **Team Mode** (parallel execution, `ultrawork`) and **hashline edits** (hash-verified edits), persistent **goal**, and **auto-resume**.
 
-## Instalação
+## Installation
 
 ```bash
 npm install -g --allow-scripts=bun bun
 bunx oh-my-openagent install --no-tui --platform=opencode --claude=no --openai=no --gemini=yes --copilot=yes --skip-auth
 ```
 
-O plugin é registrado no `opencode.jsonc` e a config dos agentes fica em `~/.omo/omo.jsonc`.
+The plugin is registered in `opencode.jsonc` and the agents config lives in `~/.omo/omo.jsonc`.
 
-## Agentes
+## Agents
 
-| Agente | Função |
+| Agent | Role |
 |---|---|
-| **Sisyphus** | orquestra o time, quebra tarefas, distribui |
-| **Hephaestus** | deep work / trabalho pesado |
-| **Oracle** | debug e arquitetura |
-| **Atlas / Metis** | orquestração e coordenação |
-| **Momus** | review de código |
-| **Prometheus** | testes e iteração |
-| **Explore** | varre o código |
-| **Librarian** | docs e utilitários |
-| **Multimodal** | entradas multimodais |
+| **Sisyphus** | orchestrates the team, breaks tasks down, distributes |
+| **Hephaestus** | deep work / heavy lifting |
+| **Oracle** | debugging and architecture |
+| **Atlas / Metis** | orchestration and coordination |
+| **Momus** | code review |
+| **Prometheus** | testing and iteration |
+| **Explore** | scans the code |
+| **Librarian** | docs and utilities |
+| **Multimodal** | multimodal inputs |
 
-## Comandos
+## Commands
 
-- `ultrawork` / `ulw` — ativa todos os agentes em tarefas complexas
-- `/goal <objetivo>` — define objetivo persistente
-- `/handoff` — gera resumo de contexto entre sessões
+- `ultrawork` / `ulw` — activates all agents for complex tasks
+- `/goal <objective>` — sets a persistent objective
+- `/handoff` — generates a context summary between sessions
 
-## Feature principal
+## Key feature
 
-Cada agente pode ser apontado para um **modelo diferente**, permitindo rotear trabalho pesado pro modelo caro e tarefas repetitivas pro modelo barato. Ver [Command Code GOAT](plano.md) para o roteamento planejado.
+Each agent can be pointed at a **different model**, allowing you to route heavy work to the expensive model and repetitive tasks to the cheap one. See [Command Code GOAT](plano.md) for the planned routing.

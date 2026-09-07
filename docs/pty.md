@@ -1,9 +1,9 @@
 # opencode-pty
 
-> **Projeto original:** https://github.com/shekohex/opencode-pty
+> **Original project:** https://github.com/shekohex/opencode-pty
 
-Terminal **interativo de verdade** dentro do OpenCode. Permite rodar `npm run dev`, REPLs e servidores em **background real** (sem depender de `&`) e saber quando o processo sai.
+A **real interactive terminal** inside OpenCode. Lets you run `npm run dev`, REPLs, and servers in **real background** (no dependency on `&`) and know when the process exits.
 
-## Instalação
+## Installation
 
-Adicionado como plugin `opencode-pty` no `opencode.jsonc`.
+Added as the `opencode-pty` plugin in `opencode.jsonc`.

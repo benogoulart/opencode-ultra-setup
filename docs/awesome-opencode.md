@@ -1,12 +1,12 @@
 # awesome-opencode
 
-> **Projeto original:** https://github.com/awesome-opencode/awesome-opencode
+> **Original project:** https://github.com/awesome-opencode/awesome-opencode
 
-Lista **curada de projetos/recursos** para o OpenCode (plugins, agentes, providers, ferramentas). **Não é um plugin** — é uma referência para descobrir novas ferramentas.
+**Curated list of projects/resources** for OpenCode (plugins, agents, providers, tools). **Not a plugin** — it's a reference for discovering new tools.
 
-> ⚠️ **Em uso? Não.** É um índice/referência, não está instalado nem em execução. O componente de agentes que usamos (oh-my-openagent) não vem dessa lista.
+> ⚠️ **In use? No.** It's an index/reference, not installed or running. The agent component we use (oh-my-openagent) doesn't come from this list.
 
-## Como usar
+## How to use
 
-- Navegar a coleção para descobrir novos plugins/ferramentas compatíveis com o OpenCode
-- Serviu como fonte de pesquisa inicial deste setup (a maioria dos componentes veio daí ou de busca direta)
+- Browse the collection to discover new plugins/tools compatible with OpenCode
+- Served as the initial research source for this setup (most components came from it or from direct search)

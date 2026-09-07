@@ -1,29 +1,29 @@
-# MCP GitHub
+# GitHub MCP
 
-> **Projeto original:** https://github.com/github/github-mcp-server
-> **Pacote npm em uso:** [`@modelcontextprotocol/server-github`](https://www.npmjs.com/package/@modelcontextprotocol/server-github)
+> **Original project:** https://github.com/github/github-mcp-server
+> **npm package in use:** [`@modelcontextprotocol/server-github`](https://www.npmjs.com/package/@modelcontextprotocol/server-github)
 
-MCP server que conecta o agente de código direto à plataforma GitHub: ler repositórios e código, gerenciar issues/PRs, analisar commits, automatizar workflows e consultar Actions/CI.
+An MCP server that connects the coding agent directly to the GitHub platform: read repositories and code, manage issues/PRs, analyze commits, automate workflows, and query Actions/CI.
 
 ## Use cases
 
-- **Repositórios** — navegar e consultar código, buscar arquivos, analisar commits e entender a estrutura do projeto.
-- **Issues & PRs** — criar, atualizar e gerenciar issues e pull requests; revisar mudanças de código.
-- **CI/CD** — monitorar workflow runs do GitHub Actions, analisar falhas de build e gerenciar releases.
-- **Análise de código** — consultar security findings, Dependabot alerts e padrões de código.
-- **Colaboração** — acessar discussions, notificações e atividade do time.
+- **Repositories** — browse and query code, search files, analyze commits, and understand project structure.
+- **Issues & PRs** — create, update, and manage issues and pull requests; review code changes.
+- **CI/CD** — monitor GitHub Actions workflow runs, analyze build failures, and manage releases.
+- **Code analysis** — query security findings, Dependabot alerts, and code patterns.
+- **Collaboration** — access discussions, notifications, and team activity.
 
-## Instalação local (npm — o que está em uso)
+## Local install (npm — what's in use)
 
 ```bash
 npm install -g @modelcontextprotocol/server-github
 ```
 
-Esse pacote gera o binário `mcp-server-github` (`.cmd`/`.ps1` no Windows em `%APPDATA%\npm`).
+This package generates the `mcp-server-github` binary (`.cmd`/`.ps1` on Windows in `%APPDATA%\npm`).
 
-## Configuração no OpenCode
+## OpenCode configuration
 
-No `opencode.jsonc`, sob a chave `mcp` (em OpenCode a chave de env é `environment`, não `env`):
+In `opencode.jsonc`, under the `mcp` key (in OpenCode the env key is `environment`, not `env`):
 
 ```jsonc
 "mcp": {
@@ -33,20 +33,20 @@ No `opencode.jsonc`, sob a chave `mcp` (em OpenCode a chave de env é `environme
     "args": [],
     "enabled": true,
     "environment": {
-      "GITHUB_PERSONAL_ACCESS_TOKEN": "<seu PAT>"
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "<your PAT>"
     }
   }
 }
 ```
 
-O PAT é criado em **Settings → Developer settings → Personal access tokens**. Escopos mínimos típicos: `repo` (operações de repositório). **Nunca commite o token** (o repo sanitiza configs em `config/`).
+The PAT is created in **Settings → Developer settings → Personal access tokens**. Typical minimum scopes: `repo` (repository operations). **Never commit the token** (the repo sanitizes configs in `config/`).
 
-## Alternativa oficial (`github/github-mcp-server`)
+## Official alternative (`github/github-mcp-server`)
 
-O pacote npm é o servidor comunitário antigo. A alternativa **oficial** (Go/Docker) entrega mais toolsets e pode ser usada **remotamente** (hospedado pelo GitHub em `https://api.githubcopilot.com/mcp/`) ou **localmente** via Docker:
+The npm package is the old community server. The **official** alternative (Go/Docker) delivers more toolsets and can be used **remotely** (hosted by GitHub at `https://api.githubcopilot.com/mcp/`) or **locally** via Docker:
 
 ```jsonc
-// Remote (recomendado quando se usa token)
+// Remote (recommended when using a token)
 "mcp": {
   "github": {
     "type": "remote",
@@ -68,7 +68,7 @@ O pacote npm é o servidor comunitário antigo. A alternativa **oficial** (Go/Do
     "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "ghcr.io/github/github-mcp-server"],
     "enabled": true,
     "environment": {
-      "GITHUB_PERSONAL_ACCESS_TOKEN": "<seu PAT>"
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "<your PAT>"
     }
   }
 }
@@ -76,31 +76,31 @@ O pacote npm é o servidor comunitário antigo. A alternativa **oficial** (Go/Do
 
 ### Toolsets
 
-O servidor oficial agrupa tools em toolsets. O default é `context, repos, issues, pull_requests, users`. Outros: `actions`, `code_security`, `dependabot`, `discussions`, `gists`, `git`, `labels`, `notifications`, `orgs`, `projects`, `releases`, `secret_protection`, `stargazers`. Filtre por env `GITHUB_TOOLSETS` ou flag `--toolsets` para não estourar o contexto.
+The official server groups tools into toolsets. The default is `context, repos, issues, pull_requests, users`. Others: `actions`, `code_security`, `dependabot`, `discussions`, `gists`, `git`, `labels`, `notifications`, `orgs`, `projects`, `releases`, `secret_protection`, `stargazers`. Filter with the `GITHUB_TOOLSETS` env var or the `--toolsets` flag to avoid blowing up context.
 
-| Toolset | Descrição |
+| Toolset | Description |
 |---|---|
-| `context` *(default)* | Contexto do usuário e do GitHub atual (ex.: `get_me`, `get_teams`) |
-| `repos` *(default)* | Repositórios, arquivos, commits, branches, releases, busca |
-| `issues` *(default)* | Issues, comentários, sub-issues, busca |
+| `context` *(default)* | Current user and GitHub context (e.g., `get_me`, `get_teams`) |
+| `repos` *(default)* | Repos, files, commits, branches, releases, search |
+| `issues` *(default)* | Issues, comments, sub-issues, search |
 | `pull_requests` *(default)* | PRs, reviews, review comments, merge, diff |
-| `users` *(default)* | Busca de usuários, stargazers |
-| `actions` | Workflows e runs do GitHub Actions |
+| `users` *(default)* | User search, stargazers |
+| `actions` | GitHub Actions workflows and runs |
 | `code_security` | Code scanning alerts |
 | `dependabot` | Dependabot alerts |
-| `discussions`, `gists`, `git`, `labels`, `notifications`, `orgs`, `projects`, `secret_protection`, `stargazers` | Demais áreas do GitHub |
+| `discussions`, `gists`, `git`, `labels`, `notifications`, `orgs`, `projects`, `secret_protection`, `stargazers` | Other GitHub areas |
 
-> Dica: no servidor oficial, `--read-only` expõe apenas tools de leitura; `--lockdown-mode` filtra conteúdo de repositórios públicos por autores sem push access (reduz risco de prompt injection).
+> Tip: on the official server, `--read-only` exposes only read tools; `--lockdown-mode` filters public-repo content by authors without push access (reduces prompt-injection risk).
 
-## Segurança do PAT
+## PAT security
 
-Boas práticas ao usar token pessoal (PAT):
+Best practices when using a personal access token (PAT):
 
-- **Escopos mínimos** — só o que a ferramenta precisa (ex.: `repo` para operações de repositório; `read:org`, `read:packages` conforme o uso).
-- **Tokens separados** — um PAT por projeto/ambiente, facilitando rotação.
-- **Nunca commitar** — mantenha fora do versionamento (o repo sanitiza em `config/`).
-- **Preferir env vars** — no OpenCode, use `environment` no MCP em vez de hardcoded no config quando possível.
+- **Least privilege** — only what the tool needs (e.g., `repo` for repository operations; `read:org`, `read:packages` as used).
+- **Separate tokens** — one PAT per project/environment for easier rotation.
+- **Never commit** — keep out of version control (the repo sanitizes in `config/`).
+- **Prefer env vars** — in OpenCode use `environment` in the MCP instead of hardcoding into the config when possible.
 
 ## Status
 
-✅ **Instalado** localmente via npm (`@modelcontextprotocol/server-github`); configurado no `opencode.jsonc` com PAT. Requer restart do OpenCode para carregar o MCP.
+✅ **Installed** locally via npm (`@modelcontextprotocol/server-github`); configured in `opencode.jsonc` with a PAT. Requires an OpenCode restart to load the MCP.

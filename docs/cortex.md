@@ -1,27 +1,27 @@
 # Cortex
 
-> **Projeto original:** https://github.com/benogoulart/Cortex
+> **Original project:** https://github.com/benogoulart/Cortex
 
-**"Developer intelligence"** para o codebase: escaneia, indexa e entende o projeto — arquivos, símbolos, dependências e arquitetura — e expõe tudo via **CLI + MCP** para agentes de código como o OpenCode. Em vez de reexplicar o projeto a cada sessão, `cortex init` uma vez e o contexto fica sempre disponível.
+**"Developer intelligence"** for your codebase: it scans, indexes, and understands the project — files, symbols, dependencies, and architecture — and exposes everything via **CLI + MCP** for coding agents like OpenCode. Instead of re-explaining the project to every session, `cortex init` once and the context is always there.
 
-## O que faz
+## What it does
 
-- **Indexação** do codebase (tree-sitter AST) → `.cortex/index.json`
-- **Extração de símbolos** (classes, funções, tipos, enums — exportados e privados)
-- **Grafo de dependências** com detecção de ciclos e scoring de impacto
-- **Análise de arquitetura** (camadas, entry points, composição)
-- **Busca semântica** com scoring multi-fator (path, símbolo, import, relevância)
-- **Context engine** — pega arquivos/símbolos/cadeias de dependência relevantes para um tópico
-- **Memória de projeto** — decisões, convenções, padrões e erros persistentes
-- **Planejador de tarefas** com avaliação de risco
-- **Code review** do git diff (arquitetura, segurança, testes)
-- **Agentes especializados** (architect, reviewer, security, tester)
-- **Relatório unificado** com score de saúde
+- **Indexing** of the codebase (tree-sitter AST) → `.cortex/index.json`
+- **Symbol extraction** (classes, functions, types, enums — exported and private)
+- **Dependency graph** with cycle detection and impact scoring
+- **Architecture analysis** (layers, entry points, composition)
+- **Semantic search** with multi-factor scoring (path, symbol, import, relevance)
+- **Context engine** — pulls relevant files/symbols/dependency chains for a topic
+- **Project memory** — persistent decisions, conventions, patterns, and mistakes
+- **Task planner** with risk assessment
+- **Code review** of the git diff (architecture, security, tests)
+- **Specialized agents** (architect, reviewer, security, tester)
+- **Unified report** with a health score
 
-## Instalação
+## Installation
 
 ```bash
-# Clone e link global
+# Clone and link globally
 git clone https://github.com/benogoulart/Cortex.git
 cd Cortex
 pnpm install
@@ -29,50 +29,50 @@ pnpm build
 pnpm link --global
 ```
 
-> ⚠️ **Windows/pnpm:** o `pnpm link --global` pode falhar ao criar os shims. Solução que resolveu: criar manualmente `cortex.cmd` e `cortex-mcp.cmd` em `%APPDATA%\npm` apontando direto para o `dist`:
+> ⚠️ **Windows/pnpm:** `pnpm link --global` may fail to create the shims. Fix that worked: create `cortex.cmd` and `cortex-mcp.cmd` manually in `%APPDATA%\npm` pointing straight at `dist`:
 > ```
 > @echo off
 > node "C:\Users\Windows\Cortex\packages\cli\dist\index.js" %*
 > ```
-> (e o equivalente para `cortex-mcp` apontando para `packages\mcp\dist\index.js`). Remova os shims quebrados de `%LOCALAPPDATA%\pnpm\cortex*` para não conflitarem no `PATH`.
+> (plus the equivalent for `cortex-mcp` pointing at `packages\mcp\dist\index.js`). Remove the broken shims from `%LOCALAPPDATA%\pnpm\cortex*` so they don't conflict in `PATH`.
 
-## Uso no projeto
+## Usage in a project
 
 ```bash
 cd my-project
-cortex init               # scan e cria .cortex/index.json
-cortex analyze            # insights do projeto
-cortex search "auth"      # acha código relevante
-cortex context "payment"  # contexto completo de um tópico
-cortex report             # análise unificada com score
-cortex remember "use repository pattern"  # salva convenção
-cortex memory search "pattern"            # recupera conhecimento
-cortex plan "add payment system"          # gera plano de execução
+cortex init               # scan and create .cortex/index.json
+cortex analyze            # project insights
+cortex search "auth"      # find relevant code
+cortex context "payment"  # full context for a topic
+cortex report             # unified analysis with score
+cortex remember "use repository pattern"  # save a convention
+cortex memory search "pattern"            # recall knowledge
+cortex plan "add payment system"          # generate an execution plan
 ```
 
-## Principais comandos
+## Main commands
 
-| Comando | Descrição |
+| Command | Description |
 |---|---|
-| `cortex init` | Escaneia o codebase e cria o índice em `.cortex/index.json` |
-| `cortex analyze` | Stats, arquitetura, saúde de dependências e símbolos top |
-| `cortex status` | Metadados do índice (versão, última análise, contagem de arquivos) |
-| `cortex search <query>` | Busca arquivos/símbolos por score semântico |
-| `cortex context <topic>` | Arquivos, símbolos, cadeias de dependência e impacto para um tópico |
-| `cortex remember <text>` | Salva decisão, convenção, padrão ou erro na memória do projeto |
-| `cortex memory` | Lista/`search`/`show`/`delete` entradas de memória |
-| `cortex plan <description>` | Gera plano de execução estruturado com avaliação de risco |
-| `cortex review` | Revisa git diff (arquitetura, segurança, testes) |
-| `cortex agent <name>` | Roda agente especializado: `architect`, `reviewer`, `security`, `tester`, `all` |
-| `cortex report` | Roda todos os agentes e gera relatório unificado com score |
-| `cortex history` | Lista snapshots de relatórios e planos salvos |
-| `cortex setup` | Configura o MCP para OpenCode, Claude Code ou Codex |
+| `cortex init` | Scans the codebase and creates the index at `.cortex/index.json` |
+| `cortex analyze` | Stats, architecture, dependency health, and top symbols |
+| `cortex status` | Index metadata (version, last analysis, file count) |
+| `cortex search <query>` | Search files/symbols by semantic relevance score |
+| `cortex context <topic>` | Files, symbols, dependency chains, and impact for a topic |
+| `cortex remember <text>` | Save a decision, convention, pattern, or mistake to project memory |
+| `cortex memory` | List/`search`/`show`/`delete` memory entries |
+| `cortex plan <description>` | Generate a structured execution plan with risk assessment |
+| `cortex review` | Review the git diff (architecture, security, tests) |
+| `cortex agent <name>` | Run a specialized agent: `architect`, `reviewer`, `security`, `tester`, `all` |
+| `cortex report` | Run all agents and produce a unified report with score |
+| `cortex history` | List saved report snapshots and plans |
+| `cortex setup` | Configure the MCP for OpenCode, Claude Code, or Codex |
 
-Flags úteis: `-r/--root` (raiz do projeto), `-n/--limit` (resultados de busca), `-c/--category` (categoria de memória), `-j/--json`, `--save`.
+Useful flags: `-r/--root` (project root), `-n/--limit` (search results), `-c/--category` (memory category), `-j/--json`, `--save`.
 
-## Integração com OpenCode (MCP)
+## OpenCode integration (MCP)
 
-Cortex expõe **21 tools via MCP (stdio)**. Config no `opencode.jsonc`:
+Cortex exposes **21 MCP tools over stdio**. Config in `opencode.jsonc`:
 
 ```jsonc
 "mcp": {
@@ -85,45 +85,45 @@ Cortex expõe **21 tools via MCP (stdio)**. Config no `opencode.jsonc`:
 }
 ```
 
-Também há um comando automático: `cortex setup --agent opencode` (ou `all`) que grava a entrada no config por você.
+There's also an automatic command: `cortex setup --agent opencode` (or `all`) that writes the entry into the config for you.
 
-### Tools MCP disponíveis
+### Available MCP tools
 
-Cortex expõe **21 tools** no MCP. Agrupadas por função:
+Cortex exposes **21 tools** over MCP, grouped by function:
 
-| Tool | Descrição |
+| Tool | Description |
 |---|---|
-| **Indexação** | |
-| `cortex_init` | Indexa o projeto |
-| `cortex_status` | Stats do índice |
-| `cortex_analyze` | Análise de dependências (ciclos, impacto, critical path) |
-| **Busca e contexto** | |
-| `cortex_search` | Busca semântica |
-| `cortex_context` | Contexto com cadeias de dependência |
-| `cortex_dependencies` | Dependências de um arquivo específico |
-| **Memória** | |
-| `cortex_remember` | Salva memória |
-| `cortex_memory_search` | Busca memória |
-| `cortex_memory_list` | Lista memórias |
-| `cortex_memory_get` | Mostra uma entrada |
-| `cortex_memory_delete` | Deleta uma entrada |
-| **Planejamento e review** | |
-| `cortex_plan` | Gera plano de execução |
-| `cortex_review` | Revisa git diff |
-| **Agentes e relatório** | |
-| `cortex_agent_architect` | Análise de arquitetura |
-| `cortex_agent_reviewer` | Review graph-aware |
-| `cortex_agent_security` | Análise de segurança |
-| `cortex_agent_tester` | Estratégia de testes |
-| `cortex_agent_all` | Roda todos os agentes |
-| `cortex_report` | Relatório unificado |
-| `cortex_history` | Histórico de relatórios/planos |
-| `cortex_config_get` | Lê a configuração atual |
+| **Indexing** | |
+| `cortex_init` | Index the project |
+| `cortex_status` | Index stats |
+| `cortex_analyze` | Dependency analysis (cycles, impact, critical path) |
+| **Search & context** | |
+| `cortex_search` | Semantic search |
+| `cortex_context` | Context with dependency chains |
+| `cortex_dependencies` | Dependencies of a specific file |
+| **Memory** | |
+| `cortex_remember` | Save memory |
+| `cortex_memory_search` | Search memory |
+| `cortex_memory_list` | List memories |
+| `cortex_memory_get` | Show an entry |
+| `cortex_memory_delete` | Delete an entry |
+| **Planning & review** | |
+| `cortex_plan` | Generate an execution plan |
+| `cortex_review` | Review the git diff |
+| **Agents & report** | |
+| `cortex_agent_architect` | Architecture analysis |
+| `cortex_agent_reviewer` | Graph-aware review |
+| `cortex_agent_security` | Security analysis |
+| `cortex_agent_tester` | Test strategy |
+| `cortex_agent_all` | Run all agents |
+| `cortex_report` | Unified report |
+| `cortex_history` | Report/plan history |
+| `cortex_config_get` | Read the current configuration |
 
-## Configuração
+## Configuration
 
-Cortex persiste ajustes por projeto em `.cortex/config.json`: padrões de include/ignore, definição de camadas, padrões de segurança customizados, pesos de busca e regras de review. Sem o arquivo, usa defaults sensatos (ex.: ignora `node_modules/**`, `dist/**`; busca com pesos `path 3`, `symbol 5`, `import 2`, `export 1`, `structural 2`).
+Cortex persists per-project settings in `.cortex/config.json`: include/ignore patterns, layer definitions, custom security patterns, search weights, and review rules. Without the file, it uses sensible defaults (e.g., ignores `node_modules/**`, `dist/**`; search weights `path 3`, `symbol 5`, `import 2`, `export 1`, `structural 2`).
 
 ## Status
 
-✅ **Instalado** (v1.0.0) — CLIs `cortex` e `cortex-mcp` funcionando; MCP adicionado ao `opencode.jsonc`. Requer restart do OpenCode para carregar o MCP.
+✅ **Installed** (v1.0.0) — `cortex` and `cortex-mcp` CLIs working; MCP added to `opencode.jsonc`. Requires an OpenCode restart to load the MCP.

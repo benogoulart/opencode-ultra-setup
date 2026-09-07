@@ -1,20 +1,20 @@
-# AGENTS.md global — Karpathy + Anti-Slop
+# Global AGENTS.md — Karpathy + Anti-Slop
 
-> **Projeto original (Karpathy):** https://github.com/multica-ai/andrej-karpathy-skills
-> **Projeto original (Anti-Slop):** https://github.com/peakoss/anti-slop
+> **Original project (Karpathy):** https://github.com/multica-ai/andrej-karpathy-skills
+> **Original project (Anti-Slop):** https://github.com/peakoss/anti-slop
 
-Diretrizes globais (em `~/.config/opencode/AGENTS.md`) para o agente parar de fazer **overengineering** e seguir boas práticas de qualidade.
+Global guidelines (in `~/.config/opencode/AGENTS.md`) so the agent stops **overengineering** and follows quality best practices.
 
-Baseado nas diretrizes de **Andrej Karpathy** (ex-OpenAI/Tesla) e no **anti-slop**.
+Based on the guidelines of **Andrej Karpathy** (ex-OpenAI/Tesla) and **anti-slop**.
 
-## Princípios
+## Principles
 
-1. **Think before coding** — declare suposições, mostre tradeoffs, pergunte quando incerto.
-2. **Simplicity first** — código mínimo que resolve; nada especulativo.
-3. **Surgical changes** — toque apenas no que foi pedido; não "melhore" o que não está quebrado.
-4. **Goal-driven** — critérios de sucesso verificáveis; repita até passar.
-5. **Anti-slop** — sem preâmbulos desnecessários, sem código comentado inútil, sem docs falsas, sem mudanças cosméticas.
+1. **Think before coding** — declare assumptions, show tradeoffs, ask when uncertain.
+2. **Simplicity first** — minimal code that solves the problem; nothing speculative.
+3. **Surgical changes** — touch only what was asked; don't "improve" what isn't broken.
+4. **Goal-driven** — verifiable success criteria; iterate until passing.
+5. **Anti-slop** — no unnecessary preambles, no useless commented code, no fake docs, no cosmetic changes.
 
-## O problema que resolve
+## The problem it solves
 
-Agentes de código tendem a: fazer feature além do pedido, "melhorar" código adjacente, comentar demais, gerar commit genérico. Essas diretrizes forçam eles a **serem mínimos e honestos** sobre o que mudam.
+Coding agents tend to: build features beyond what was asked, "improve" adjacent code, over-comment, and write generic commit messages. These guidelines force them to **be minimal and honest** about what they change.

@@ -1,20 +1,20 @@
 # opencode-supermemory
 
-> **Projeto original:** https://github.com/supermemoryai/opencode-supermemory
+> **Original project:** https://github.com/supermemoryai/opencode-supermemory
 
-Memória **persistente entre sessões**. O OpenCode lembra de convenções do projeto, decisões e contexto mesmo depois de fechar o terminal ou compactar o contexto.
+**Persistent memory across sessions.** OpenCode remembers project conventions, decisions, and context even after closing the terminal or compressing the context.
 
-## Instalação
+## Installation
 
 ```bash
 bunx opencode-supermemory@latest install --no-tui
-bunx opencode-supermemory@latest login   # abre browser para autenticar
+bunx opencode-supermemory@latest login   # opens browser to authenticate
 ```
 
-Cria os comandos `/supermemory-init`, `/supermemory-login`, `/supermemory-logout`, `/supermemory-status` e um `supermemory.jsonc`.
+Creates the `/supermemory-init`, `/supermemory-login`, `/supermemory-logout`, `/supermemory-status` commands and a `supermemory.jsonc`.
 
 ## Status
 
-✅ **Funcionando** — autenticado (conta Pampequeredbull), projeto container criado, recall per-turn + capture a cada 3 turnos e fim de sessão. Requer restart do OpenCode após o login.
+✅ **Working** — authenticated (account Pampequeredbull), project container created, per-turn recall + capture every 3 turns and at end of session. Requires an OpenCode restart after login.
 
-> ⚠️ **Nota:** o dashboard do console (`console.supermemory.ai/auth/connect`) às vezes trava na etapa "Loading workspaces…". Não é problema de rede/CLI — tentar em janela anônima ou relançar o `login` costuma resolver.
+> ⚠️ **Note:** the console dashboard (`console.supermemory.ai/auth/connect`) sometimes hangs on the "Loading workspaces…" step. It's not a network/CLI problem — trying an incognito window or re-running `login` usually fixes it.

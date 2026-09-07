@@ -1,31 +1,31 @@
 # OmniRoute
 
-> **Projeto original:** https://github.com/diegosouzapw/OmniRoute
-> **Plugin OpenCode:** https://www.npmjs.com/package/@omniroute/opencode-provider
+> **Original project:** https://github.com/diegosouzapw/OmniRoute
+> **OpenCode plugin:** https://www.npmjs.com/package/@omniroute/opencode-provider
 
-AI gateway **gratuito** (MIT). Um endpoint → **352 providers** (150+ free tiers), ~**1.47B tokens/mês grátis**. Auto-fallback entre providers, compressão (RTK+Caveman, 15–95%), quota-aware routing, MCP/A2A.
+**Free** AI gateway (MIT). One endpoint → **352 providers** (150+ free tiers), ~**1.47B free tokens/month**. Auto-fallback between providers, compression (RTK+Caveman, 15–95%), quota-aware routing, MCP/A2A.
 
-## Por que usar junto com o GOAT
+## Why use it alongside GOAT
 
-- Acesso a modelos top **sem depender de chave paga** (OpenCode Free, tiers gratuitos)
-- **Fallback automático**: se o GOAT limitar/cair, o OmniRoute redistribui para outro provider
-- Roda local (`http://localhost:20128/v1`), zero-config
+- Access to top models **without depending on a paid key** (OpenCode Free, free tiers)
+- **Automatic fallback**: if GOAT limits/crashes, OmniRoute redistributes to another provider
+- Runs locally (`http://localhost:20128/v1`), zero-config
 
-## Instalação
+## Installation
 
 ```bash
 npm install -g --allow-scripts=bun omniroute
 ```
 
-> ⚠️ No Windows/npm, os scripts de pós-instalação (bun, keytar, sharp, esbuild, etc.) podem ficar bloqueados por `allow-scripts`. Configuração que resolveu:
+> ⚠️ On Windows/npm, post-install scripts (bun, keytar, sharp, esbuild, etc.) may be blocked by `allow-scripts`. Configuration that worked:
 >
 > ```bash
 > npm config set allow-scripts=omniroute,keytar,sharp,@swc/core,protobufjs,esbuild,onnxruntime-node,tls-client-node,@parcel/watcher,koffi --location=user
 > ```
 
-## Integração com OpenCode
+## OpenCode integration
 
-O plugin `@omniroute/opencode-provider` gera a entrada de provider para `opencode.json` delegando a execução ao `@ai-sdk/openai-compatible`:
+The `@omniroute/opencode-provider` plugin generates the provider entry for `opencode.json` delegating execution to `@ai-sdk/openai-compatible`:
 
 ```jsonc
 "provider": {
@@ -42,4 +42,4 @@ O plugin `@omniroute/opencode-provider` gera a entrada de provider para `opencod
 
 ## Status
 
-✅ **Instalado** (v3.8.50) e **gateway no ar** (`localhost:20128`); integração com o config do OpenCode pendente (ver [plano](plano.md)).
+✅ **Installed** (v3.8.50) and **gateway up** (`localhost:20128`); OpenCode config integration pending (see [plan](plano.md)).

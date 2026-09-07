@@ -1,14 +1,14 @@
 # opencode-agent-skills
 
-> **Projeto original:** https://github.com/joshuadavidthomas/opencode-agent-skills
+> **Original project:** https://github.com/joshuadavidthomas/opencode-agent-skills
 
-Adiciona **skills reutilizáveis** ao OpenCode — workflows e instruções especializadas que o agente carrega sob demanda quando a tarefa casa com uma skill. Exemplo nativo: a skill `customize-opencode` para editar a própria config do OpenCode.
+Adds **reusable skills** to OpenCode — specialized workflows and instructions that the agent loads on demand when a task matches a skill. Native example: the `customize-opencode` skill for editing OpenCode's own config.
 
-## Instalação
+## Installation
 
-Adicionado como plugin `opencode-agent-skills` no `opencode.jsonc`.
+Added as the `opencode-agent-skills` plugin in `opencode.jsonc`.
 
-## O que permite
+## What it enables
 
-- Carregar instruções/workflow específicos (ex.: "como configurar o opencode corretamente")
-- Divisão por contexto, evitando desperdício de contexto em instruções que não se aplicam à tarefa atual
+- Load specific instructions/workflows (e.g., "how to configure opencode correctly")
+- Split by context, avoiding wasted context on instructions that don't apply to the current task
