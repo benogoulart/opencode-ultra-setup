@@ -18,6 +18,8 @@ Documentação do meu setup do [OpenCode](https://opencode.ai) levado ao "ultra"
 | [OmniRoute](docs/omniroute.md) | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | AI gateway gratuito (352 providers, auto-fallback, compressão) | ✅ installedo; gateway no ar |
 | [AGENTS.md (Karpathy + anti-slop)](docs/agentes.md) | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) · [peakoss/anti-slop](https://github.com/peakoss/anti-slop) | diretrizes globais pro agente não fazer overengineering | ✅ ativo |
 | [Command Code GOAT](docs/plano.md) | [commandcode.ai](https://commandcode.ai) | provider de API (GPT-5.6 Sol, GLM 5.2, Kimi K2.7 Code, DeepSeek V4 Flash) | 🎯 planejado |
+| [Cortex](docs/cortex.md) | [benogoulart/Cortex](https://github.com/benogoulart/Cortex) | developer intelligence — indexa o codebase, grafo de dependências, busca semântica, memória de projeto, code review e planner via CLI + MCP | ✅ instalado |
+| [MCP GitHub](docs/github-mcp.md) | [github/github-mcp-server](https://github.com/github/github-mcp-server) | MCP local para issues/PRs, código, Actions e automação do GitHub | ✅ instalado |
 | [awesome-opencode](docs/awesome-opencode.md) | [awesome-opencode/awesome-opencode](https://github.com/awesome-opencode/awesome-opencode) | referência de projetos/recursos para OpenCode (não é plugin) | 📋 referência |
 
 ## Projetos avaliados e não usados
