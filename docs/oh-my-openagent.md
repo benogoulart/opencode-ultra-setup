@@ -1,6 +1,6 @@
 # oh-my-openagent
 
-> **Projeto original:** https://github.com/housemeow/oh-my-openagent
+> **Projeto original:** https://github.com/code-yeongyu/oh-my-openagent
 
 Um time de **11 agentes** com **Team Mode** (execução paralela, `ultrawork`) e **hashline edits** (edições verificadas por hash), **goal** persistente e **auto-resume**.
 

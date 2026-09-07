@@ -4,20 +4,25 @@
 
 | Projeto | Link | Decisão |
 |---|---|---|
-| Command Code GOAT | https://github.com/commandcode-ai/commandcode | 🎯 integrar como provider pago |
-| OmniRoute | https://github.com/diegosouzapw/OmniRoute | ✅ instalado; integrar gateway |
+| Command Code GOAT | [commandcode.ai](https://commandcode.ai) | 🎯 integrar como provider pago |
+| OmniRoute | https://github.com/diegosouzapw/OmniRoute | ✅ instalado; gateway no ar |
 | awesome-opencode | https://github.com/awesome-opencode/awesome-opencode | 📋 referência (não é plugin) |
 | andrej-karpathy-skills | https://github.com/multica-ai/andrej-karpathy-skills | ✅ usado no AGENTS.md |
+| anti-slop | https://github.com/peakoss/anti-slop | ✅ princípios no AGENTS.md |
 | opencode-agent-skills | https://github.com/joshuadavidthomas/opencode-agent-skills | ✅ plugin ativo |
+| opencode-supermemory | https://github.com/supermemoryai/opencode-supermemory | ✅ plugin ativo |
+| opencode-pty | https://github.com/shekohex/opencode-pty | ✅ plugin ativo |
+| opencode-websearch-cited | https://github.com/ghoulr/opencode-websearch-cited | ✅ plugin ativo |
+| opencode-wakatime | https://github.com/angristan/opencode-wakatime | ✅ plugin ativo |
+| headroom | https://github.com/headroomlabs-ai/headroom | ⏳ instalado, proxy em ajuste |
 | claude-mem (Grok Mem) | https://github.com/thedotmack/claude-mem | ⏸️ skip (redundante com supermemory) |
 | claude-plugins-official | https://github.com/anthropics/claude-plugins-official | ⏸️ skip (para Claude Code) |
-| anti-slop | https://github.com/peakoss/anti-slop | ✅ princípios no AGENTS.md |
 
 ## Pendências do setup
 
 - [ ] **GOAT** — obter API key e integrar como provider
-- [ ] **OmniRoute** — subir gateway (localhost:20128) + integrar provider no `opencode.jsonc`
-- [ ] **supermemory** — rodar `bunx opencode-supermemory@latest login`
+- [ ] **OmniRoute** — gateway no ar; adicionar provider ao `opencode.jsonc`
+- [ ] **supermemory** — completar login (browser)
 - [ ] **headroom** — verificar/relançar proxy (health `127.0.0.1:8787`)
 - [ ] **wakatime** — configurar API key no `~/.wakatime.cfg`
 - [ ] **validação final** — `doctor` + reiniciar OpenCode

@@ -2,7 +2,7 @@
 
 > **Projeto original:** https://github.com/awesome-opencode/awesome-opencode
 
-Lista **curada de projetos/recursos** para o OpenCode (plugins, agentes, providers, thinets, ferramentas). **Não é um plugin** — é uma referência para descobrir novas ferramentas.
+Lista **curada de projetos/recursos** para o OpenCode (plugins, agentes, providers, ferramentas). **Não é um plugin** — é uma referência para descobrir novas ferramentas.
 
 > ⚠️ **Em uso? Não.** É um índice/referência, não está instalado nem em execução. O componente de agentes que usamos (oh-my-openagent) não vem dessa lista.
 

@@ -42,4 +42,4 @@ O plugin `@omniroute/opencode-provider` gera a entrada de provider para `opencod
 
 ## Status
 
-✅ **Instalado** (v3.8.50) — gateway em `localhost:20128` e integração no config pendentes (ver [plano](plano.md)).
+✅ **Instalado** (v3.8.50) e **gateway no ar** (`localhost:20128`); integração com o config do OpenCode pendente (ver [plano](plano.md)).

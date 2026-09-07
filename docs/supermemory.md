@@ -1,6 +1,6 @@
 # opencode-supermemory
 
-> **Projeto original:** https://github.com/femoved/opencode-supermemory
+> **Projeto original:** https://github.com/supermemoryai/opencode-supermemory
 
 Memória **persistente entre sessões**. O OpenCode lembra de convenções do projeto, decisões e contexto mesmo depois de fechar o terminal ou compactar o contexto.
 
@@ -14,4 +14,4 @@ Cria os comandos `/supermemory-init`, `/supermemory-login`, `/supermemory-logout
 
 ## Status
 
-⏳ **Parcialmente configurado** — instalado, mas ainda precisa de login (`bunx opencode-supermemory@latest login`).
+⏳ **Parcialmente configurado** — instalado, login em andamento, ainda falta autenticar no browser.
