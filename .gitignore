@@ -1,0 +1,12 @@
+# Configs locais com possíveis secrets
+config/*.local.jsonc
+config/*.backup
+**/.wakatime.cfg
+**/auth.json
+**/.env
+**/.env.*
+*.log
+~/.headroom/
+
+# Artefatos de testes
+node_modules/
