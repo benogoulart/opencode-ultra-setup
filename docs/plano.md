@@ -13,19 +13,20 @@
 | opencode-supermemory | https://github.com/supermemoryai/opencode-supermemory | ✅ active plugin |
 | opencode-pty | https://github.com/shekohex/opencode-pty | ✅ active plugin |
 | opencode-websearch-cited | https://github.com/ghoulr/opencode-websearch-cited | ✅ active plugin |
+| opencode-antigravity-auth | https://github.com/NoeFabris/opencode-antigravity-auth | ✅ active plugin |
 | opencode-wakatime | https://github.com/angristan/opencode-wakatime | ✅ active plugin |
-| headroom | https://github.com/headroomlabs-ai/headroom | ⏳ installed, proxy being tuned |
+| headroom | https://github.com/headroomlabs-ai/headroom | ✅ installed; proxy healthy |
 | claude-mem (Grok Mem) | https://github.com/thedotmack/claude-mem | ⏸️ skipped (redundant with supermemory) |
 | claude-plugins-official | https://github.com/anthropics/claude-plugins-official | ⏸️ skipped (for Claude Code) |
 
 ## Setup pending items
 
-- [ ] **GOAT** — get an API key and integrate as a provider
-- [ ] **OmniRoute** — gateway up; add provider to `opencode.jsonc`
-- [ ] **supermemory** — finish login (browser)
-- [ ] **headroom** — check/re-launch proxy (health `127.0.0.1:8787`)
-- [ ] **wakatime** — configure API key in `~/.wakatime.cfg`
-- [ ] **final validation** — `doctor` + restart OpenCode
+- [ ] **GOAT** — get an API key and integrate as a provider (set aside for now)
+- [x] **OmniRoute** — gateway up on port 20128; provider `omniroute` added to `opencode.jsonc`
+- [x] **supermemory** — login finished (account authenticated)
+- [x] **headroom** — proxy healthy at `127.0.0.1:8787` (routing OpenCode through it is optional)
+- [x] **wakatime** — API key configured in `~/.wakatime.cfg`
+- [ ] **final validation** — `doctor` + restart OpenCode to load MCPs (github, cortex) and supermemory
 
 ## Command Code GOAT integration (planned)
 

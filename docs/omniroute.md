@@ -35,6 +35,9 @@ The `@omniroute/opencode-provider` plugin generates the provider entry for `open
     "options": {
       "baseURL": "http://localhost:20128/v1",
       "apiKey": "sk_omniroute"
+    },
+    "models": {
+      "auto": { "name": "Auto (multi-provider)" }
     }
   }
 }
@@ -42,4 +45,4 @@ The `@omniroute/opencode-provider` plugin generates the provider entry for `open
 
 ## Status
 
-✅ **Installed** (v3.8.50) and **gateway up** (`localhost:20128`); OpenCode config integration pending (see [plan](plano.md)).
+✅ **Installed** (v3.8.50), **gateway up** (`localhost:20128`), and the `omniroute` provider (model `auto`) is **already added** to `opencode.jsonc`. Anonymous access works (`REQUIRE_API_KEY=false`); to secure it on an untrusted network set `REQUIRE_API_KEY=true` or bind to `127.0.0.1`.

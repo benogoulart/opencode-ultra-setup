@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/OpenCode-agent-000000?style=flat&logo=opencode&logoColor=white" alt="OpenCode">
 <img src="https://img.shields.io/badge/agents-11-8A2BE2?style=flat" alt="11 agents">
 <img src="https://img.shields.io/badge/MCP-2-32CD32?style=flat" alt="MCP servers">
-<img src="https://img.shields.io/badge/plugins-6-1E90FF?style=flat" alt="plugins">
+<img src="https://img.shields.io/badge/plugins-7-1E90FF?style=flat" alt="plugins">
 <img src="https://img.shields.io/badge/AGENTS.md-Karpathy%2Banti--slop-FF4500?style=flat" alt="AGENTS.md">
 <img src="https://img.shields.io/badge/status-in_progress-F0AD4E?style=flat" alt="status">
 
@@ -56,6 +56,7 @@ What this setup allows you to do with OpenCode:
 - **Lean context** — the headroom proxy compresses context up to ~57% before sending it to the model, without losing critical lines.
 - **Real terminal** — dev servers and REPLs run in real background with `opencode-pty`.
 - **Sourced search** — web search with inline citations and source URLs.
+- **Free top models** — Google OAuth (Antigravity) gives Claude Opus/Sonnet and Gemini 3 with no API key (opencode-antigravity-auth).
 - **Dev intelligence** — Cortex indexes the codebase: semantic search, dependency graph, project memory, planner, and code review via CLI + MCP.
 - **GitHub automation** — issues, PRs, code, Actions, and CI straight from the agent via the GitHub MCP.
 - **Honest quality** — Karpathy + anti-slop guidelines in the global `AGENTS.md` to avoid overengineering and slop.
@@ -79,6 +80,7 @@ graph TD
         SK["opencode-agent-skills — on-demand skills"]
         WS["websearch-cited — cited search"]
         WK["wakatime — metrics"]
+        AA["opencode-antigravity-auth — Google OAuth models"]
     end
 
     subgraph Mcp["MCP servers"]
@@ -100,12 +102,13 @@ graph TD
 |---|---|---|---|
 | [oh-my-openagent](docs/oh-my-openagent.md) | [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent) | 11 agents (Sisyphus, Hephaestus, Oracle, Atlas, Metis, Momus, ...) with **Team Mode** and `ultrawork` | ✅ installed |
 | [opencode-agent-skills](docs/agent-skills.md) | [joshuadavidthomas/opencode-agent-skills](https://github.com/joshuadavidthomas/opencode-agent-skills) | reusable skills loaded on demand | ✅ installed |
+| [opencode-antigravity-auth](docs/antigravity-auth.md) | [NoeFabris/opencode-antigravity-auth](https://github.com/NoeFabris/opencode-antigravity-auth) | Google OAuth for free Antigravity models (Claude Opus/Sonnet, Gemini 3) | ✅ installed |
 | [opencode-supermemory](docs/supermemory.md) | [supermemoryai/opencode-supermemory](https://github.com/supermemoryai/opencode-supermemory) | persistent memory across sessions | ✅ authenticated |
-| [headroom](docs/headroom.md) | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | compresses context up to ~57% before sending it to the model | ⏳ proxy being tuned |
+| [headroom](docs/headroom.md) | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | compresses context up to ~57% before sending it to the model | ✅ proxy up (routing optional) |
 | [opencode-pty](docs/pty.md) | [shekohex/opencode-pty](https://github.com/shekohex/opencode-pty) | interactive terminal (real background dev server) | ✅ installed |
 | [opencode-websearch-cited](docs/websearch-cited.md) | [ghoulr/opencode-websearch-cited](https://github.com/ghoulr/opencode-websearch-cited) | web search with citation and source | ✅ installed |
-| [opencode-wakatime](docs/wakatime.md) | [angristan/opencode-wakatime](https://github.com/angristan/opencode-wakatime) | metrics of how much the agent codes | ⏳ API key missing |
-| [OmniRoute](docs/omniroute.md) | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | free AI gateway (352 providers, auto-fallback, compression) | ✅ gateway up |
+| [opencode-wakatime](docs/wakatime.md) | [angristan/opencode-wakatime](https://github.com/angristan/opencode-wakatime) | metrics of how much the agent codes | ✅ installed + API key |
+| [OmniRoute](docs/omniroute.md) | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) | free AI gateway (352 providers, auto-fallback, compression) | ✅ gateway + provider |
 | [AGENTS.md (Karpathy + anti-slop)](docs/agentes.md) | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) · [peakoss/anti-slop](https://github.com/peakoss/anti-slop) | global guidelines so the agent avoids overengineering | ✅ active |
 | [Command Code GOAT](docs/plano.md) | [commandcode.ai](https://commandcode.ai) | API provider (GPT-5.6 Sol, GLM 5.2, Kimi K2.7 Code, DeepSeek V4 Flash) | 🎯 planned |
 | [Cortex](docs/cortex.md) | [benogoulart/Cortex](https://github.com/benogoulart/Cortex) | developer intelligence — indexes the codebase, dependency graph, semantic search, project memory, code review, and planner via CLI + MCP | ✅ installed |
@@ -149,6 +152,7 @@ Known issues and the workaround that worked — details in each doc:
 - **Windows/npm:** blocked post-install scripts with broken `allow-scripts` (OmniRoute). Fix: `npm config set allow-scripts=...` (see [omniroute.md](docs/omniroute.md)).
 - **supermemory:** the console dashboard sometimes hangs on "Loading workspaces…". Fix: incognito window or re-run `login` (see [supermemory.md](docs/supermemory.md)).
 - **headroom:** proxy timeouts on health `http://127.0.0.1:8787/health` (see [headroom.md](docs/headroom.md)).
+- **antigravity-auth:** 403 `Permission denied` on `cloudaicompanion` — create/select a GCP project and enable the Gemini for Google Cloud API (see [antigravity-auth.md](docs/antigravity-auth.md)).
 
 ## Plan
 
