@@ -50,6 +50,26 @@ cortex memory search "pattern"            # recupera conhecimento
 cortex plan "add payment system"          # gera plano de execução
 ```
 
+## Principais comandos
+
+| Comando | Descrição |
+|---|---|
+| `cortex init` | Escaneia o codebase e cria o índice em `.cortex/index.json` |
+| `cortex analyze` | Stats, arquitetura, saúde de dependências e símbolos top |
+| `cortex status` | Metadados do índice (versão, última análise, contagem de arquivos) |
+| `cortex search <query>` | Busca arquivos/símbolos por score semântico |
+| `cortex context <topic>` | Arquivos, símbolos, cadeias de dependência e impacto para um tópico |
+| `cortex remember <text>` | Salva decisão, convenção, padrão ou erro na memória do projeto |
+| `cortex memory` | Lista/`search`/`show`/`delete` entradas de memória |
+| `cortex plan <description>` | Gera plano de execução estruturado com avaliação de risco |
+| `cortex review` | Revisa git diff (arquitetura, segurança, testes) |
+| `cortex agent <name>` | Roda agente especializado: `architect`, `reviewer`, `security`, `tester`, `all` |
+| `cortex report` | Roda todos os agentes e gera relatório unificado com score |
+| `cortex history` | Lista snapshots de relatórios e planos salvos |
+| `cortex setup` | Configura o MCP para OpenCode, Claude Code ou Codex |
+
+Flags úteis: `-r/--root` (raiz do projeto), `-n/--limit` (resultados de busca), `-c/--category` (categoria de memória), `-j/--json`, `--save`.
+
 ## Integração com OpenCode (MCP)
 
 Cortex expõe **21 tools via MCP (stdio)**. Config no `opencode.jsonc`:
@@ -69,7 +89,40 @@ Também há um comando automático: `cortex setup --agent opencode` (ou `all`) q
 
 ### Tools MCP disponíveis
 
-`cortex_init`, `cortex_status`, `cortex_analyze`, `cortex_search`, `cortex_context`, `cortex_remember`, `cortex_memory_search`, `cortex_memory_list`, `cortex_memory_get`, `cortex_memory_delete`, `cortex_plan`, `cortex_review`, `cortex_dependencies`, `cortex_agent_architect`, `cortex_agent_reviewer`, `cortex_agent_security`, `cortex_agent_tester`, `cortex_agent_all`, `cortex_report`, `cortex_history`, `cortex_config_get`.
+Cortex expõe **21 tools** no MCP. Agrupadas por função:
+
+| Tool | Descrição |
+|---|---|
+| **Indexação** | |
+| `cortex_init` | Indexa o projeto |
+| `cortex_status` | Stats do índice |
+| `cortex_analyze` | Análise de dependências (ciclos, impacto, critical path) |
+| **Busca e contexto** | |
+| `cortex_search` | Busca semântica |
+| `cortex_context` | Contexto com cadeias de dependência |
+| `cortex_dependencies` | Dependências de um arquivo específico |
+| **Memória** | |
+| `cortex_remember` | Salva memória |
+| `cortex_memory_search` | Busca memória |
+| `cortex_memory_list` | Lista memórias |
+| `cortex_memory_get` | Mostra uma entrada |
+| `cortex_memory_delete` | Deleta uma entrada |
+| **Planejamento e review** | |
+| `cortex_plan` | Gera plano de execução |
+| `cortex_review` | Revisa git diff |
+| **Agentes e relatório** | |
+| `cortex_agent_architect` | Análise de arquitetura |
+| `cortex_agent_reviewer` | Review graph-aware |
+| `cortex_agent_security` | Análise de segurança |
+| `cortex_agent_tester` | Estratégia de testes |
+| `cortex_agent_all` | Roda todos os agentes |
+| `cortex_report` | Relatório unificado |
+| `cortex_history` | Histórico de relatórios/planos |
+| `cortex_config_get` | Lê a configuração atual |
+
+## Configuração
+
+Cortex persiste ajustes por projeto em `.cortex/config.json`: padrões de include/ignore, definição de camadas, padrões de segurança customizados, pesos de busca e regras de review. Sem o arquivo, usa defaults sensatos (ex.: ignora `node_modules/**`, `dist/**`; busca com pesos `path 3`, `symbol 5`, `import 2`, `export 1`, `structural 2`).
 
 ## Status
 
