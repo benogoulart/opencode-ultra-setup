@@ -1,4 +1,6 @@
-# headroom
+# Headroom
+
+> **Projeto original:** https://github.com/headroom-ai/headroom
 
 Comprime o contexto **antes** de mandar pro modelo, reduzindo o uso de tokens em ~20–57% sem perder linhas críticas. É **reversível** — busca o texto original quando necessário.
 

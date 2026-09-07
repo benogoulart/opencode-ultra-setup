@@ -1,5 +1,7 @@
 # opencode-wakatime
 
+> **Projeto original:** https://github.com/timothycarambat/opencode-wakatime
+
 Métricas de quanto o agente codeja (linhas, horas, modelo usado). Plugin `opencode-wakatime`.
 
 ## Status

@@ -1,5 +1,8 @@
 # AGENTS.md global — Karpathy + Anti-Slop
 
+> **Projeto original (Karpathy):** https://github.com/multica-ai/andrej-karpathy-skills
+> **Projeto original (Anti-Slop):** https://github.com/peakoss/anti-slop
+
 Diretrizes globais (em `~/.config/opencode/AGENTS.md`) para o agente parar de fazer **overengineering** e seguir boas práticas de qualidade.
 
 Baseado nas diretrizes de **Andrej Karpathy** (ex-OpenAI/Tesla) e no **anti-slop**.

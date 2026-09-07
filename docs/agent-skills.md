@@ -1,5 +1,7 @@
 # opencode-agent-skills
 
+> **Projeto original:** https://github.com/joshuadavidthomas/opencode-agent-skills
+
 Adiciona **skills reutilizáveis** ao OpenCode — workflows e instruções especializadas que o agente carrega sob demanda quando a tarefa casa com uma skill. Exemplo nativo: a skill `customize-opencode` para editar a própria config do OpenCode.
 
 ## Instalação

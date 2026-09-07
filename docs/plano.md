@@ -1,8 +1,22 @@
 # Plano e pendências
 
+## Referências de projetos investigados
+
+| Projeto | Link | Decisão |
+|---|---|---|
+| Command Code GOAT | https://github.com/commandcode-ai/commandcode | 🎯 integrar como provider pago |
+| OmniRoute | https://github.com/diegosouzapw/OmniRoute | ✅ instalado; integrar gateway |
+| awesome-opencode | https://github.com/awesome-opencode/awesome-opencode | 📋 referência (não é plugin) |
+| andrej-karpathy-skills | https://github.com/multica-ai/andrej-karpathy-skills | ✅ usado no AGENTS.md |
+| opencode-agent-skills | https://github.com/joshuadavidthomas/opencode-agent-skills | ✅ plugin ativo |
+| claude-mem (Grok Mem) | https://github.com/thedotmack/claude-mem | ⏸️ skip (redundante com supermemory) |
+| claude-plugins-official | https://github.com/anthropics/claude-plugins-official | ⏸️ skip (para Claude Code) |
+| anti-slop | https://github.com/peakoss/anti-slop | ✅ princípios no AGENTS.md |
+
 ## Pendências do setup
 
 - [ ] **GOAT** — obter API key e integrar como provider
+- [ ] **OmniRoute** — subir gateway (localhost:20128) + integrar provider no `opencode.jsonc`
 - [ ] **supermemory** — rodar `bunx opencode-supermemory@latest login`
 - [ ] **headroom** — verificar/relançar proxy (health `127.0.0.1:8787`)
 - [ ] **wakatime** — configurar API key no `~/.wakatime.cfg`

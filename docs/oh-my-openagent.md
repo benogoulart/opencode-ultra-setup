@@ -1,12 +1,14 @@
 # oh-my-openagent
 
+> **Projeto original:** https://github.com/housemeow/oh-my-openagent
+
 Um time de **11 agentes** com **Team Mode** (execução paralela, `ultrawork`) e **hashline edits** (edições verificadas por hash), **goal** persistente e **auto-resume**.
 
 ## Instalação
 
 ```bash
 npm install -g --allow-scripts=bun bun
-bunx oh-my-openagent upgrade --claude=no --openai=no --gemini=yes --copilot=yes --skip-auth
+bunx oh-my-openagent install --no-tui --platform=opencode --claude=no --openai=no --gemini=yes --copilot=yes --skip-auth
 ```
 
 O plugin é registrado no `opencode.jsonc` e a config dos agentes fica em `~/.omo/omo.jsonc`.
@@ -33,4 +35,4 @@ O plugin é registrado no `opencode.jsonc` e a config dos agentes fica em `~/.om
 
 ## Feature principal
 
-Cada agente pode ser apontado para um **modelo diferente**, permitindo rotear trabalho pesado pro modelo caro e tarefas repetitivas pro modelo barato. Ver [Command Code GOAT](goat.md) para o roteamento planejado.
+Cada agente pode ser apontado para um **modelo diferente**, permitindo rotear trabalho pesado pro modelo caro e tarefas repetitivas pro modelo barato. Ver [Command Code GOAT](plano.md) para o roteamento planejado.

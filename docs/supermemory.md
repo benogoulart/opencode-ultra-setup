@@ -1,5 +1,7 @@
 # opencode-supermemory
 
+> **Projeto original:** https://github.com/femoved/opencode-supermemory
+
 Memória **persistente entre sessões**. O OpenCode lembra de convenções do projeto, decisões e contexto mesmo depois de fechar o terminal ou compactar o contexto.
 
 ## Instalação
